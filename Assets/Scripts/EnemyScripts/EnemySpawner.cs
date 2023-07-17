@@ -43,8 +43,8 @@ public class EnemySpawner : MonoBehaviour
                 Debug.Log(obj.name);
                 yield return new WaitForSeconds(interval);
                 GameObject newPrefab = Instantiate(obj, new Vector3(Random.Range(-16, 17), Random.Range(-9, 10), 0), Quaternion.identity);
-                EnemyBehavior enemyBehavior = newPrefab.GetComponent<EnemyBehavior>();
-                enemyBehavior.enemy = enemyData;
+                //EnemyBehavior enemyBehavior = newPrefab.GetComponent<EnemyBehavior>();
+                //enemyBehavior.enemy = enemyData;
                 StartCoroutine(SpawnEnemy(interval, obj));
             }
         }

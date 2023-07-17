@@ -11,4 +11,10 @@ public class Enemy : ScriptableObject
     public float speed;
     public AnimationClip enemyWalkAnim;
     public AnimationClip enemyAttackAnim;
+    [HideInInspector] public GameObject currentObject;
+
+    public void ResetData()
+    {
+        currentObject = null;
+    }
 }
