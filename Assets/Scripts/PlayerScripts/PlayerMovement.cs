@@ -4,60 +4,45 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] PlayerStats stats;
-
-    public Transform attackPoint;
-    Animator playerAnim;
     Rigidbody2D rb;
+    Animator animator;
 
+    [SerializeField] PlayerStats stats;
+    private Vector2 moveDir;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerAnim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     void FixedUpdate()
     {
-        MoveDirection();
+        PlayerMove();
+        PlayerRotation();
     }
-     void MoveDirection()
+    private void Update()
     {
-        int velX = Mathf.RoundToInt(Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1));
-        int velY = Mathf.RoundToInt(Mathf.Clamp(Input.GetAxisRaw("Vertical"), -1, 1));
-
-        #region Player Rotation
-        playerAnim.SetFloat("Horizontal", velX);
-        playerAnim.SetFloat("Vertical", velY);
-
-        if (playerAnim.GetFloat("Horizontal") < 0)
+        if (moveDir != Vector2.zero) 
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-        else if (playerAnim.GetFloat("Horizontal") > 0)
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-        #endregion
-
-        #region Player Movement
-        Vector2 movement = Vector2.zero;
-
-        if (Mathf.Abs(velX) > Mathf.Abs(velY))
-        {
-            attackPoint.localPosition = new Vector3(0.6f, 0, 0);
-            movement = new Vector2(velX, 0);
+            animator.SetBool("isMoving", true);
         }
         else
         {
-            movement = new Vector2(0, velY);
-
-            if (velY > 0)
-                attackPoint.localPosition = new Vector3(0, 0.7f, 0);
-            else if (velY < 0)
-                attackPoint.localPosition = new Vector3(0, -0.7f, 0);
+            animator.SetBool("isMoving", false);
         }
-
-        rb.velocity = movement * stats.speed;
+    }
+    void PlayerMove()
+    {
+        #region Player Input
+        float velX = Input.GetAxisRaw("Horizontal");
+        float velY = Input.GetAxisRaw("Vertical");
+        moveDir = new Vector2(velX, velY);
         #endregion
+        rb.velocity = moveDir * stats.speed;
+    }
+
+    void PlayerRotation()
+    {
+        if (moveDir.x != 0) transform.localScale = new Vector3(moveDir.x, 1, 1);
     }
 }
