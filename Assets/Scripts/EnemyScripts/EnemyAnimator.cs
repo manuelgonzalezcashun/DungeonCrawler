@@ -5,13 +5,12 @@ using UnityEngine;
 public class EnemyAnimator : MonoBehaviour
 {
     private Animator animator;
-    private Enemy enemy;
+    [SerializeField] Stats enemyStats;
     void Start()
     {
         EnemyMovement.onMovement += HandleEnemyMovement;
 
         animator = GetComponent<Animator>();
-        enemy = GetComponent<EnemyClass>().enemy;
     }
     private void OnDestroy()
     {
@@ -36,7 +35,7 @@ public class EnemyAnimator : MonoBehaviour
         bool isMoving = movement != Vector2.zero;
         if (isMoving)
         {
-            animator.Play(enemy.enemyWalkAnim.name);
+            //animator.Play(enemyStats.enemyWalkAnim.name);
         }
     }
     //else if (enemyAnimator.GetBool("isHurt"))

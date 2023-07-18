@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public Enemy enemyData;
+    public Stats enemyStats;
     public float waitForNextEnemy = 5f;
     private int newOrderInLayer = -1;
     private Coroutine coroutine;

@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class EnemyClass : MonoBehaviour
 {
-    public Enemy enemy; 
-    void Start()
-    {
-        enemy.currentObject = gameObject;
-        gameObject.name = enemy.name;
-    }
-    private void OnDestroy()
-    {
-        enemy.ResetData();
-    }
     #region Goblin Mumble
     IEnumerator GoblinMumble()
     {

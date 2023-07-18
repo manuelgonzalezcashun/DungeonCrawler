@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public PlayerStats stats;
     public Slider healthBar;
 
     void Update()
     {
-        healthBar.value = stats.health / 10;
+        //healthBar.value = stats.health / 10;
     }
 }

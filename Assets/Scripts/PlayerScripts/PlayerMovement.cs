@@ -1,3 +1,4 @@
+using Ink;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public static event Action<Vector2> onMovement;
 
     Rigidbody2D rb;
-    [SerializeField] PlayerStats stats;
+    [SerializeField] Stats stats;
 
     private Vector2 moveDir;
 
