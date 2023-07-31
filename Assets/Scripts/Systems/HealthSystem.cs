@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class HealthSystem : MonoBehaviour, IDamageable
+public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] Stats stats;
-    protected float currentHealth;
+    private float currentHealth;
 
-    private void Start()
-    {
-        currentHealth = stats.health;
-    }
+    //private void Start()
+    //{
+    //    currentHealth = stats.health;
+    //}
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;

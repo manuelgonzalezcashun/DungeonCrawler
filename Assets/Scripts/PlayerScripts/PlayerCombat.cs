@@ -8,7 +8,7 @@ public class PlayerCombat : CombatSystem
     {
         if (Input.GetButtonDown("Fire2"))
         {
-            Attack(stats.attack);
+            //Attack(stats.attack);
         }
     }
 }

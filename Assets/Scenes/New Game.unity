@@ -170,7 +170,6 @@ GameObject:
   - component: {fileID: 790281657}
   - component: {fileID: 790281660}
   - component: {fileID: 790281661}
-  - component: {fileID: 790281662}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -381,19 +380,6 @@ MonoBehaviour:
     m_Bits: 64
   attackRange: 0.2
   stats: {fileID: 11400000, guid: ba40bb50dd1800d4b8fc2017e469571f, type: 2}
---- !u!114 &790281662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790281648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6319f6fbc39cb74baddde861c8bbf40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: ba40bb50dd1800d4b8fc2017e469571f, type: 2}
 --- !u!1 &1040640963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8019510868978478784, guid: 2c75484214a40f047a5b04e178ecfef0, type: 3}
@@ -431,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 2c0fa733ad7100540a3bd0db0d35bc56, type: 2}
---- !u!114 &1040640984
+--- !u!114 &1040640990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -653,6 +639,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3673175651244933938, guid: 2c75484214a40f047a5b04e178ecfef0, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8019510868978478784, guid: 2c75484214a40f047a5b04e178ecfef0, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -722,5 +712,5 @@ PrefabInstance:
       addedObject: {fileID: 1040640983}
     - targetCorrespondingSourceObject: {fileID: 8019510868978478784, guid: 2c75484214a40f047a5b04e178ecfef0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1040640984}
+      addedObject: {fileID: 1040640990}
   m_SourcePrefab: {fileID: 100100000, guid: 2c75484214a40f047a5b04e178ecfef0, type: 3}

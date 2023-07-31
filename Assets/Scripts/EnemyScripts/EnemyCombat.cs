@@ -11,7 +11,7 @@ public class EnemyCombat : CombatSystem
     {
         if (Time.time - lastAttackTime > attackCooldown)
         {
-            Attack(stats.attack);
+            //Attack(stats.attack);
             lastAttackTime = Time.time;
         }
     }
