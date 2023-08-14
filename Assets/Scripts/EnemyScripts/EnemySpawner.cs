@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     void StartCoroutine()
     {
-        coroutine = StartCoroutine(SpawnEnemy(waitForNextEnemy, enemyPrefab));
+        //coroutine = StartCoroutine(SpawnEnemy(waitForNextEnemy, enemyPrefab));
     }
     void PauseCoroutine()
     {
@@ -31,54 +31,54 @@ public class EnemySpawner : MonoBehaviour
     {
         if (coroutine == null)
         {
-            coroutine = StartCoroutine(SpawnEnemy(waitForNextEnemy, enemyPrefab));
+            //coroutine = StartCoroutine(SpawnEnemy(waitForNextEnemy, enemyPrefab));
         }
     }
 
-    IEnumerator SpawnEnemy(float interval, GameObject obj)
-    {
-        {
-            if (!GameManagement.GetInstance().gameIsPaused)
-            {
-                Debug.Log(obj.name);
-                yield return new WaitForSeconds(interval);
-                GameObject newPrefab = Instantiate(obj, new Vector3(Random.Range(-16, 17), Random.Range(-9, 10), 0), Quaternion.identity);
-                //EnemyBehavior enemyBehavior = newPrefab.GetComponent<EnemyBehavior>();
-                //enemyBehavior.enemy = enemyData;
-                StartCoroutine(SpawnEnemy(interval, obj));
-            }
-        }
-    }
+    //IEnumerator SpawnEnemy(float interval, GameObject obj)
+    //{
+    //    {
+    //        if (!GameManagement.GetInstance().gameIsPaused)
+    //        {
+    //            Debug.Log(obj.name);
+    //            yield return new WaitForSeconds(interval);
+    //            GameObject newPrefab = Instantiate(obj, new Vector3(Random.Range(-16, 17), Random.Range(-9, 10), 0), Quaternion.identity);
+    //            //EnemyBehavior enemyBehavior = newPrefab.GetComponent<EnemyBehavior>();
+    //            //enemyBehavior.enemy = enemyData;
+    //            StartCoroutine(SpawnEnemy(interval, obj));
+    //        }
+    //    }
+    //}
 
     void Update()
     {
-        if (GameManagement.GetInstance().gameIsPaused)
-        {
-            PauseCoroutine();
-            Debug.Log("Coroutine paused");
+        //if (GameManagement.GetInstance().gameIsPaused)
+        //{
+        //    PauseCoroutine();
+        //    Debug.Log("Coroutine paused");
 
-            GameObject[] hideObjects = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach (GameObject obj in hideObjects)
-            {
-                SpriteRenderer objRenderer = obj.GetComponent<SpriteRenderer>();
-                objRenderer.sortingOrder = newOrderInLayer;
-            }
-        }
-        else
-        {
-            ResumeCoroutine();
-            Debug.Log("Coroutine resumed");
-        }
+        //    GameObject[] hideObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        //    foreach (GameObject obj in hideObjects)
+        //    {
+        //        SpriteRenderer objRenderer = obj.GetComponent<SpriteRenderer>();
+        //        objRenderer.sortingOrder = newOrderInLayer;
+        //    }
+        //}
+        //else
+        //{
+        //    ResumeCoroutine();
+        //    Debug.Log("Coroutine resumed");
+        //}
 
-        if (GameManagement.GetInstance().playerisDead())
-        {
-            GameObject[] destroyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        //if (GameManagement.GetInstance().playerisDead())
+        //{
+        //    GameObject[] destroyObjects = GameObject.FindGameObjectsWithTag("Enemy");
 
-            foreach (GameObject obj in destroyObjects)
-            {
-                Destroy(obj);
-            }
-        }
+        //    foreach (GameObject obj in destroyObjects)
+        //    {
+        //        Destroy(obj);
+        //    }
+        //}
     }
 
 }
